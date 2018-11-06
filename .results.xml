@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="5" name="pytest" skips="0" tests="6" time="0.090"><testcase classname="test.index_test.TestQueryPersonClassMethods" file="test/index_test.py" line="39" name="test_car_property_methods" time="0.0013458728790283203"><failure message="AssertionError: &apos;Datsun&apos; != 1978">self = &lt;index_test.TestQueryPersonClassMethods testMethod=test_car_property_methods&gt;
+
+    def test_car_property_methods(self):
+        self.assertEqual(datsun._make, &quot;Datsun&quot;)
+        self.assertEqual(datsun.make, &quot;Datsun&quot;)
+        self.assertEqual(datsun._model, &quot;280Z&quot;)
+        self.assertEqual(datsun.model, &quot;280Z&quot;)
+        self.assertEqual(datsun._year, 1978)
+&gt;       self.assertEqual(datsun.year, 1978)
+E       AssertionError: &apos;Datsun&apos; != 1978
+
+test/index_test.py:46: AssertionError</failure></testcase><testcase classname="test.index_test.TestQueryPersonClassMethods" file="test/index_test.py" line="51" name="test_cars_driven_by_class_method" time="0.0013587474822998047"><failure message="AssertionError: Sequences differ: [{&apos;_name&apos;: &apos;Pam Beasley&apos;, &apos;_occupation&apos;: &apos;Secretary&apos;}] != [&lt;car.Car object at 0x7fa02758c978&gt;]
+
+First differing element 0:
+{&apos;_name&apos;: &apos;Pam Beasley&apos;, &apos;_occupation&apos;: &apos;Secretary&apos;}
+&lt;car.Car object at 0x7fa02758c978&gt;
+
+- [{&apos;_name&apos;: &apos;Pam Beasley&apos;, &apos;_occupation&apos;: &apos;Secretary&apos;}]
++ [&lt;car.Car object at 0x7fa02758c978&gt;]">self = &lt;index_test.TestQueryPersonClassMethods testMethod=test_cars_driven_by_class_method&gt;
+
+    def test_cars_driven_by_class_method(self):
+&gt;       self.assertItemsEqual(Car.cars_driven_by(&quot;Secretary&quot;), [toyota])
+E       AssertionError: Sequences differ: [{&apos;_name&apos;: &apos;Pam Beasley&apos;, &apos;_occupation&apos;: &apos;Secretary&apos;}] != [&lt;car.Car object at 0x7fa02758c978&gt;]
+E       
+E       First differing element 0:
+E       {&apos;_name&apos;: &apos;Pam Beasley&apos;, &apos;_occupation&apos;: &apos;Secretary&apos;}
+E       &lt;car.Car object at 0x7fa02758c978&gt;
+E       
+E       - [{&apos;_name&apos;: &apos;Pam Beasley&apos;, &apos;_occupation&apos;: &apos;Secretary&apos;}]
+E       + [&lt;car.Car object at 0x7fa02758c978&gt;]
+
+test/index_test.py:53: AssertionError</failure></testcase><testcase classname="test.index_test.TestQueryPersonClassMethods" file="test/index_test.py" line="54" name="test_drives_a_class_method" time="0.0006840229034423828"><failure message="AssertionError: Expected, but missing:
+    [{&apos;_name&apos;: &apos;Pam Beasley&apos;, &apos;_occupation&apos;: &apos;Secretary&apos;}, {&apos;_name&apos;: &apos;Jim Halpert&apos;, &apos;_occupation&apos;: &apos;Paper Salesperson&apos;}]
+Unexpected, but present:
+    [&lt;person.Person object at 0x7fa027585fd0&gt;, &lt;person.Person object at 0x7fa0275b8278&gt;]">self = &lt;index_test.TestQueryPersonClassMethods testMethod=test_drives_a_class_method&gt;
+
+    def test_drives_a_class_method(self):
+&gt;       self.assertItemsEqual(Person.drives_a(&quot;Toyota&quot;), [jim, pam])
+E       AssertionError: Expected, but missing:
+E           [{&apos;_name&apos;: &apos;Pam Beasley&apos;, &apos;_occupation&apos;: &apos;Secretary&apos;}, {&apos;_name&apos;: &apos;Jim Halpert&apos;, &apos;_occupation&apos;: &apos;Paper Salesperson&apos;}]
+E       Unexpected, but present:
+E           [&lt;person.Person object at 0x7fa027585fd0&gt;, &lt;person.Person object at 0x7fa0275b8278&gt;]
+
+test/index_test.py:56: AssertionError</failure></testcase><testcase classname="test.index_test.TestQueryPersonClassMethods" file="test/index_test.py" line="60" name="test_drives_same_make_as_me_instance_method" time="0.0009071826934814453"><failure message="AssertionError: Sequences differ: [{&apos;_name&apos;: &apos;Pam Beasley&apos;, &apos;_occupation&apos;: &apos;Secretary&apos;}] != [&lt;person.Person object at 0x7fa0275b8278&gt;]
+
+First differing element 0:
+{&apos;_name&apos;: &apos;Pam Beasley&apos;, &apos;_occupation&apos;: &apos;Secretary&apos;}
+&lt;person.Person object at 0x7fa0275b8278&gt;
+
+- [{&apos;_name&apos;: &apos;Pam Beasley&apos;, &apos;_occupation&apos;: &apos;Secretary&apos;}]
++ [&lt;person.Person object at 0x7fa0275b8278&gt;]">self = &lt;index_test.TestQueryPersonClassMethods testMethod=test_drives_same_make_as_me_instance_method&gt;
+
+    def test_drives_same_make_as_me_instance_method(self):
+&gt;       self.assertItemsEqual(jim.drives_same_make_as_me(), [pam])
+E       AssertionError: Sequences differ: [{&apos;_name&apos;: &apos;Pam Beasley&apos;, &apos;_occupation&apos;: &apos;Secretary&apos;}] != [&lt;person.Person object at 0x7fa0275b8278&gt;]
+E       
+E       First differing element 0:
+E       {&apos;_name&apos;: &apos;Pam Beasley&apos;, &apos;_occupation&apos;: &apos;Secretary&apos;}
+E       &lt;person.Person object at 0x7fa0275b8278&gt;
+E       
+E       - [{&apos;_name&apos;: &apos;Pam Beasley&apos;, &apos;_occupation&apos;: &apos;Secretary&apos;}]
+E       + [&lt;person.Person object at 0x7fa0275b8278&gt;]
+
+test/index_test.py:62: AssertionError</failure></testcase><testcase classname="test.index_test.TestQueryPersonClassMethods" file="test/index_test.py" line="57" name="test_has_oldest_car_class_method" time="0.0006246566772460938"><failure message="AssertionError: {&apos;_name&apos;: &apos;Dwight Schrute&apos;, &apos;_occupation&apos;: &apos;Paper Salesperson&apos;} != &lt;person.Person object at 0x7fa027903748&gt;">self = &lt;index_test.TestQueryPersonClassMethods testMethod=test_has_oldest_car_class_method&gt;
+
+    def test_has_oldest_car_class_method(self):
+&gt;       self.assertEqual(Person.has_oldest_car(), dwight)
+E       AssertionError: {&apos;_name&apos;: &apos;Dwight Schrute&apos;, &apos;_occupation&apos;: &apos;Paper Salesperson&apos;} != &lt;person.Person object at 0x7fa027903748&gt;
+
+test/index_test.py:59: AssertionError</failure></testcase><testcase classname="test.index_test.TestQueryPersonClassMethods" file="test/index_test.py" line="33" name="test_person_property_methods" time="0.000553131103515625"></testcase></testsuite>
